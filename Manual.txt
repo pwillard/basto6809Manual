@@ -138,7 +138,7 @@ QB64 PE is a modern extended BASIC+OpenGL language that retains QuickBASIC 4.5 a
 
 After compiling BasTo6809 with QB64pe, make sure to include a folder named `Basic_Includes` alongside it. This folder contains `.asm` libraries, which the compiler will insert into the `output.asm` file it creates from your source `.BAS` file, if needed..
 
-The last thing you will need to do is install *lwasm* on your computer, as this assembler is required to turn the compiler's assembly output into the final machine language program.  https://github.com/lwtools/lwtools/releases
+The last thing you will need to do is install *lwasm* on your computer, as this assembler is required to turn the compiler's assembly output into the final machine language program. http://www.lwtools.ca/
 
 
 [NOTE]
