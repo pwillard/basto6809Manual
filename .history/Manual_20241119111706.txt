@@ -815,13 +815,13 @@ FP_X=FLOATDIV(INT(X),10)
 ----
 
 
-== Get Command - Dimension Size Calculation 
+=== GET Command - dimension size calculation 
 
 To calculate the size of the array space for your GET/PUT buffer use the following formula: 
 
 First dimension in the array is calculated with this formula: 
 
- (INT(Width in pixels/8)+3) * 8 
+ (INT(Width in pixels/8)+3){asterisk}8 
 
 Second dimension in the array is simply the number of rows in your sprite
 
