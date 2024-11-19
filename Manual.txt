@@ -158,7 +158,7 @@ Using Windows:
 
 At this point you'll have an Executable program called `ML.bin` in the folder that you can use on a real CoCo or an emulator. 
 
-=== Preparing your system to compile BASIC programs 
+=== Preparing Your System To Compile Basic Programs 
 
 1 Install and test QB64pe so you're familiar with how it compiles BASIC program 
 
@@ -568,7 +568,7 @@ If you want to stream 8 bit stereo sound from your CoCo to the COCOFLASH/Orchest
     ffmpeg -i source_audio.mp3 -acodec pcm_u8 -f u8 -ac 2 -ar 22375 -af aresample=22375:filter_size=256:cutoff=1.0 MYSAMPLE.RAW 
 
 
-=== New Floating Point Commands 
+=== Floating Point Commands 
 
 One of the things that makes a compiler so fast is that it uses integer math. If you must use floating point math and you don't mind the slowdown in speed you can use the following commands. 
 
@@ -583,7 +583,7 @@ One of the things that makes a compiler so fast is that it uses integer math. If
 |===
 
 
-=== New Floating Point String conversion commands:
+=== Floating Point String conversion commands:
 
 |===
 | Command | Description |  Command | Description
@@ -851,7 +851,7 @@ The DIM command for this array would be:
 The reason so much space is needed for the GET buffer is because the GET command preprocesses the sprite data and saves bit shifted versions in the array space that are ready to be PUT on the screen as fast as possible. This means sprites will be just as fast on a byte boundary as it is on any other pixel. 
 
 
-=== Limitations of the Compiler 
+== Limitations of the Compiler 
 
 * Other than support for LOADM it can't handle Disk access 
 
