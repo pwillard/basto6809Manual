@@ -712,8 +712,8 @@ You would need to do this as:
 
 [source,bbcbasic]
 ----
-IF CMPGT(FP_Var1,VP_Var6) THEN IF A=B THEN * LSE IF
-A=B THEN * 
+IF CMPGT(FP_Var1,VP_Var6) THEN IF A=B THEN ... 
+ELSE IF A=B THEN ...
 ----
 
 === Additional Floating Point Details
