@@ -127,6 +127,8 @@ Example: `-s128` reserves 128 bytes for each string.
 
 * `SDC_SAVEM` - Saves a file from memory to the SD card.
 
+
+
 == How to use BasTo6809
 
 The compiler is called BasTo6809 and is itself written in BASIC,  specifically QB64pe (Phoenix Edition).   You'll need to compile BasTo6089 code yourself it using QB64pe to create the new executable files for your system. You will be instructing QB64pe to compile the basic programs into `EXE` files which can be run on your system.
@@ -136,7 +138,7 @@ To compile the programs, you'll need to download and install QB64pe from https:/
 [NOTE]
 QB64 PE is a modern extended BASIC+OpenGL language that retains QuickBASIC 4.5 and QBasic compatibility and compiles native binaries for  Windows (7 and up),  Linux, and  macOS (Catalina and up).
 
-After compiling BasTo6809 with QB64pe, make sure to include a folder named `Basic_Includes` alongside it. This folder contains `.asm` libraries, which the compiler will insert into the `output.asm` file it creates from your source `.BAS` file, if needed..
+After compiling BasTo6809 with QB64pe, make sure to include a folder named `Basic_Includes`  and `Basic_Commands`alongside it. These additional folders contains `.asm` libraries and other includes, which the compiler will insert into the `output.asm` file it creates from your source `.BAS` file, if needed..
 
 The last thing you will need to do is install *lwasm* on your computer, as this assembler is required to turn the compiler's assembly output into the final machine language program. http://www.lwtools.ca/
 
@@ -175,7 +177,7 @@ You should also compile cc1sl.bas so it's available, if needed.
 
 After completing these steps,  you're nearly ready. 
 
-Make sure your working directory now has the BasTo6809 executable, BasTo6809.Tokenizer executable, BasTo6809.Compile executable, and the cc1sl executable program (if you compiled it), as well as the subfolder named Basic_Includes, which has the supporting `.asm` and font files in it. 
+Make sure your working directory now has the BasTo6809 executable, BasTo6809.Tokenizer executable, BasTo6809.Compile executable, and the cc1sl executable program (if you compiled it), as well as the sub folders named Basic_Includes and Basic_Commands, which has the supporting `.asm`, font files and other required files in them. 
 
 With that all setup you're now good to go, here's an example of how to compile a basic program called `HELLO.BAS` from the command line: 
 
