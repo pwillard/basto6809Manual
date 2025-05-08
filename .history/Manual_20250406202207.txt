@@ -76,8 +76,6 @@ Example: `-s128` reserves 128 bytes for each string.
 `-h`::  Displays a help message with information on how to use `BasTo6809`. 
 
 
-[NOTE]
-Locate will check to see if the location value exceeds that last available line and will adjust it to the last available line if it does. 
 
 == Special Features
 
@@ -164,9 +162,6 @@ DestinationPage
 * v - Paletter Slot Number 0 to 15
 * Colour - Colour value of 0 to 63
 
-`NTSC_FONTCOLOURS(b,f)` :: Background, Foreground - Sets the CoCo 3 NTSC font colours
-
-
 [NOTE]
 DRAW, GET & PUT commands are not yet available
 
@@ -201,7 +196,6 @@ DRAW, GET & PUT commands are not yet available
 
 * `SDC_SAVEM` * Saves a file from memory to the SD card.
 
-* You can include _inline assembly_ code in your program using the `ADDASSEM` and `ENDASSEM` command to wrap the code in a special block of BASIC code.  It will be included in the final assembly code and can be used to perform any special assembly language operations you need. 
 
 
 == How to use BasTo6809
@@ -357,11 +351,57 @@ The following is the current list of BASIC commands that are supported by the Ba
 
 The following is a list of BASIC commands that are supported by the compiler.
 
+|===							
+|    Basic Command    |    Notes     |    Basic Command    |    Notes
+|    AUDIO            |    ON/OFF    |    BUTTON           |    
+|    BACKUP           |    ON/OFF    |    CLS              |    Clears the screen 
+|    BEEP             |    ON/OFF    |    COLOR            |    Sets the color of the screen 
+|    CIRCLE           |    x,y,r     |                     |              
+|    CIRCLE           |              |    CLEAR            |    Only clears all the variables to zero 
+|    CLS              |              |    CASE             |    
+|    DATA             |              |    DEF FN           |    
+|    DIM              |              |    DO               |    WHILE/UNTIL
+|    DRAW             |              |    DSKINI           |    
+|    ELSE             |              |                     |
+|    ELSEIF           |              |    END              |    
+|    END IF           |              |    END SELECT       |    
+|    EVERYCASE        |              |    EXEC             |    
+|    EXIT             |    DO/FOR/WHILE|  FOR/NEXT         | 
+|    GCLS             | clear Graphic screen screen | GMODE      | Set Graphics Mode
+|    GET              |              |    GETJOYD          |    See technical data below
+|    GOSUB            |              |    GOTO             | 
+|    GCOPY            | page to page |                     |   
+|    IF               |              |    INPUT            |    
+|    LET              |              |    LINE             |    
+|    LOADM            |              |    LOCATE           |    Sets the cursor for text on the *MODE 4 screen LOCATE x,y,  Where x is 0 to 31 and y is 0 to 184 
+|    LOOP             |    WHILE/UNTIL|
+|    MERGE            |              |    MOTOR           |    ON/OFF
+|    NEXT             |              |    ON GOSUB         |    
+|    ON GOTO          |              |    PAINT            |
+|    PALETTE          | v,colour     |                     |
+|    PCLS             |              |    PLAY             |    
+|    PMODE            |    PMODE 4 ONLY|    POINT           |    
+|    POKE             |              |    PRINT            |    Can’t do PRINT USING, Use PRINT #-3,”Hello” to print on PMODE 4 screen 
+|    PRESET           |              |    PSET             |    
+|    PUT              |              |    READ             |
+|    REANAME          |              |    REM              |    
+|    RESET            |              |    RESTORE          |    
+|    RETURN           |              |    SCREEN           |    
+|    SDC_CLOSE()      |              |    SDC_OPEN         |    
+|    SDC_GET()        |              |    SDC_LOADM        |        
+|     SDC_SAVEM       |              |    SDC_PLAY         |    *** Multiple Variations. See SDC Commands for Audio Playback
+|    SDC_PUTBYTE0     |              |    SDC_PUTBYTE1     |    
+|    SELECT           |              |    SET              |    
+|    STEP             |              |    STOP             |    
+|    SOUND            |              |    TAB()            |    
+|    TIMER            |              |    UNTIL            |    
+|    WHILE/WEND       |              |    WPOKE            |    
+|===
 
 
 |===
 | Word | Comments
-| ' | This is the SHORTHAND for REM (remark)
+| ' | 
 | AUDIO | ON/OFF - Connects or disconnects cassette output to TV speaker `AUDIO ON` or `AUDIO OFF`
 | BACK | 
 | BACKUP | Not implemented yet
@@ -382,12 +422,13 @@ The following is a list of BASIC commands that are supported by the compiler.
 | DEL | 
 | DIM | 
 | DIM | 
-| DIR | Not implemented 
-| DLOAD | Not implemented 
-| DO | WHILE/UNTIL See DO WHILE <<LOOP>> 
+| DIR | 
+| DLOAD | 
+| DO | WHILE/UNTIL
+| DO | 
 | DRAW | 
-| DRIVE | Not implemented 
-| DSKINI | Not implemented 
+| DRIVE | 
+| DSKINI | 
 | EDIT |  Not implemented yet
 | ELSE | 
 | ELSEIF | 
@@ -396,8 +437,8 @@ The following is a list of BASIC commands that are supported by the compiler.
 | EVERYCASE | 
 | EXEC | 
 | EXIT | DO/FOR/WHILE
-| FIELD | Not implemented 
-| FILES | Not implemented 
+| FIELD | 
+| FILES | 
 | FOR | 
 | FOR | 
 | GCLS | 
@@ -409,38 +450,38 @@ The following is a list of BASIC commands that are supported by the compiler.
 | GOTO | 
 | IF | 
 | INPUT | 
-| IS | Not implemented 
-| KILL | Not implemented 
+| IS | 
+| KILL | 
 | LET | 
 | LINE | 
 | LIST | Not implemented yet
 | LLIST | Not implemented yet
-| LOAD | Not implemented 
+| LOAD | 
 | LOADM | 
 | LOCATE | 
-| LOOP | See DO WHILE <<LOOP>>
+| LOOP | 
 | LSET | Not implemented yet
-| MERGE | Not implemented 
-| MOTOR | ON/OFF
+| MERGE | 
+| MOTOR | 
 | NEW | | COPY | Not implemented yet
 | NEXT | 
-| NTSC_FONTCOLOURS | Background, Foreground
+| NTSC_FONTCOLOURS | 
 | OFF | 
 | ON | 
 | OPEN | Not implemented yet
 | PAINT | 
 | PALETTE | 
 | PCLEAR |  Not implemented 
-| PCOPY | Not implemented 
-| PLAY | Used to play sounds
-| PMODE | Not implemented 
+| PCOPY | 
+| PLAY | 
+| PMODE | 
 | POKE | 
 | PRINT | Can’t do PRINT USING, Use PRINT #-3,”Hello” to print on PMODE 4 screen
 | PUT | 
 | READ | 
 | REM | 
 | RENAME | Not implemented yet
-| RENUM | Not implemented 
+| RENUM | 
 | RESTORE | 
 | RETURN | 
 | RSET | Not implemented yet
@@ -478,13 +519,13 @@ The following is a list of BASIC commands that are supported by the compiler.
 | TRON | Not implemented yet
 | UNLOAD | Not implemented yet
 | UNTIL | 
-| USING | Not implemented 
+| USING | 
 | VBL | 
 | VERIFY | Not implemented yet
 | WAIT | 
-| WEND | See DO WHILE <<LOOP>> 
-| WHILE | See DO WHILE <<LOOP>> 
-| WPOKE | 16-bit POKE command
+| WEND | 
+| WHILE | 
+| WPOKE | 
 | WRITE | Not implemented yet
 |===
 
@@ -495,7 +536,7 @@ The following is a list of BASIC commands that are supported by the compiler.
 | Word | Comments
 | ABS | Absolute value of a number
 | ASC | ASCII value of a character
-| ATN | Arc Tangent of a number  - Not implemented 
+| ATN | Arc Tangent of a number
 | BUTTON | Returns the current state of the joystick buttons
 | CMPEQ | Floating Point Compare if Greater Than 
 | CMPGE | Floating Point Compare if Greater Than or Equal 
@@ -503,11 +544,11 @@ The following is a list of BASIC commands that are supported by the compiler.
 | CMPLE | Floating Point Compare if Less Than or Equal 
 | CMPLT | Floating Point Compare if Less Than 
 | CMPNE | Floating Point Compare if Not Equal 
-| COS | Conversion of angle to cosine - Not implemented 
-| CVN | Not implemented yet
-| EOF | End-Of-File Not implemented 
-| EXP | Exponential function of a number - Not implemented 
-| FIX | Fixed-point value of a number - Not implemented 
+| COS | Conversion of angle to cosine
+| CVN | - Not implementted yet
+| EOF | End-Of-File 
+| EXP | Exponential function of a number 
+| FIX | Fixed-point value of a number 
 | FLOATADD | 
 | FLOATATAN | 
 | FLOATCOS | 
@@ -529,13 +570,13 @@ The following is a list of BASIC commands that are supported by the compiler.
 | LEN | 
 | LOC |  Not implemented yet
 | LOF |  Not implemented yet
-| LOG | Not implemented 
-| MEM | Not implemented 
+| LOG | 
+| MEM | 
 | PEEK | 
 | POINT | 
 | POINT_SG24 | 
 | POINT_SG6 | 
-| POS | Not implemented 
+| POS | 
 | PPOINT | 
 | RND | 
 | RNDL | 
@@ -546,15 +587,15 @@ The following is a list of BASIC commands that are supported by the compiler.
 | SDC_MKDIR | 
 | SDC_SETDIR | 
 | SGN | 
-| SIN | Not implemented 
+| SIN | 
 | SQR | 
 | STRTOFLOAT | 
 | TAB | 
-| TAN | Not implemented 
-| USR | Not implemented 
+| TAN | 
+| USR | 
 | VAL | 
-| VARPTR | Not implemented 
-| WPEEK | 16-Bit PEEK command 
+| VARPTR | 
+| WPEEK | 
 |===
 
 
@@ -758,10 +799,6 @@ DO
  A$ = INKEY$
 LOOP UNTIL A$ <> ""
 ----  
-
-PLAY:: Plays music of specified note (A-G or 1-12), octave (O),volume (V), note-length (L), tempo (T), pause (P), and allows execution of substrings. Also sharps (# or + )and flats (-) .
-
-`PLAY"L1;A#;P8;V10;T3;L2;B-;9;XA$;"`
 
 ===  SDC Related Commands 
 
@@ -1245,11 +1282,8 @@ GCOPY SourcePage,DestinationPage :: Makes a copy the Source graphics page to the
     SourcePage - Source graphics page 
     DestinationPage -  Destination graphics page
 
-NTSC_FONTCOLOURS(B,F):: Background, Foreground - Sets the CoCo 3 NTSC font colours
+NTSC_FONTCOLOURS:: Sets the font colour for NTSC graphics modes
 
-  Background - Background colour number
-  Foreground - Foreground colour number
-  
 SET(x,y,Colour):: Sets a pixel on the screen
 
     x,y - Screen location of the pixel to be drawn
@@ -1381,12 +1415,12 @@ DRAW, GET & PUT commands are not yet available
 |157      |640 x 192    |4        |30720
 |158      |640 x 200    |4        |32000
 |159      |640 x 225    |4        |36000
-|160      |512 x 192    |256        |24576
-|161      |512 x 200    |256        |25600
-|162      |512 x 225    |256        |28800
-|163      |640 x 192    |256        |30720
-|164      |640 x 200    |256        |32000
-|165      |640 x 225    |256        |36000
+|160      |512 x 192    |4        |24576
+|161      |512 x 200    |4        |25600
+|162      |512 x 225    |4        |28800
+|163      |640 x 192    |4        |30720
+|164      |640 x 200    |4        |32000
+|165      |640 x 225    |4        |36000
 |===
 
 

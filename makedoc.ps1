@@ -1,5 +1,5 @@
 
-$filepath = "manual.pdf"
+$filepath = "basto6809.pdf"
 
 Write-Output "Working on $filePath"
 

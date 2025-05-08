@@ -8,7 +8,7 @@
 :setanchors:
 :chapter-label:
 :doctype: book
-:revision: 3.01
+:revision: 4.10
 :author: Glen Hewlett
 :copyright: Copyright 2024
 :encoding: utf-8
@@ -47,6 +47,7 @@
 :tcb: Color Basic
 :sourcedir: code
 :source-highlighter: rouge
+:github: https://github.com/nowhereman999/BASIC-To-6809
 
 <<<
 
